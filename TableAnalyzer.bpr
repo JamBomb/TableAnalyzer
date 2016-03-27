@@ -32,7 +32,7 @@
     <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
     <RELEASELIBPATH value="$(BCB)\lib\release"/>
     <LINKER value="ilink32"/>
-    <USERDEFINES value=""/>
+    <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="NO_STRICT"/>
     <MAINSOURCE value="TableAnalyzer.cpp"/>
     <INCLUDEPATH value="source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\Common;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\Graphics;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\NonVisual;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\NetComm"/>
@@ -48,13 +48,15 @@
       -ID:\Borland\CBuilder6\MyComponent\cnvcl\Source\Common 
       -ID:\Borland\CBuilder6\MyComponent\cnvcl\Source\Graphics 
       -ID:\Borland\CBuilder6\MyComponent\cnvcl\Source\NonVisual 
-      -ID:\Borland\CBuilder6\MyComponent\cnvcl\Source\NetComm -src_suffix cpp -boa"/>
-    <CFLAG1 value="-O2 -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -a8 -b- -k- -vi -c -tW -tWM"/>
+      -ID:\Borland\CBuilder6\MyComponent\cnvcl\Source\NetComm -src_suffix cpp 
+      -D_DEBUG -boa"/>
+    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
+      -tW -tWM"/>
     <PFLAGS value="-N2H:\Paul\MyProgram\TableAnalyzer\obj 
-      -N0H:\Paul\MyProgram\TableAnalyzer\obj -$Y- -$L- -$D- -$A8 -v -JPHNE -M"/>
+      -N0H:\Paul\MyProgram\TableAnalyzer\obj -$Y+ -$W -$O- -$A8 -v -JPHNE -M"/>
     <RFLAGS value=""/>
-    <AFLAGS value="/mx /w2 /zn"/>
-    <LFLAGS value="-IH:\Paul\MyProgram\TableAnalyzer\obj -D&quot;&quot; -aa -Tpe -x -Gn"/>
+    <AFLAGS value="/mx /w2 /zi"/>
+    <LFLAGS value="-IH:\Paul\MyProgram\TableAnalyzer\obj -D&quot;&quot; -aa -Tpe -x -Gn -v"/>
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
