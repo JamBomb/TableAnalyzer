@@ -3,10 +3,10 @@
 <PROJECT>
   <MACROS>
     <VERSION value="BCB.06.00"/>
-    <PROJECT value="H:\Paul\MyProgram\TableAnalyzer\bin\TableAnalyzer.exe"/>
-    <OBJFILES value="obj\TableAnalyzer.obj obj\MainForm.obj obj\CProject.obj obj\MarkupSTL.obj 
-      obj\CFieldNode.obj obj\CFieldNodeSet.obj obj\CFieldTable.obj 
-      obj\CTableCtrl.obj obj\AboutForm.obj"/>
+    <PROJECT value="bin\TableAnalyzer.exe"/>
+    <OBJFILES value="obj\\TableAnalyzer.obj obj\\MainForm.obj obj\\CProject.obj 
+      obj\\MarkupSTL.obj obj\\CFieldNode.obj obj\\CFieldNodeSet.obj 
+      obj\\CFieldTable.obj obj\\CTableCtrl.obj obj\\AboutForm.obj"/>
     <RESFILES value="TableAnalyzer.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -35,28 +35,26 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="NO_STRICT"/>
     <MAINSOURCE value="TableAnalyzer.cpp"/>
-    <INCLUDEPATH value="source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\Common;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\Graphics;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\NonVisual;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\NetComm"/>
-    <LIBPATH value="source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl"/>
+    <INCLUDEPATH value="source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\MyComponent\suipack5\Include\BCB6;$(BCB)\MyComponent\TMPHexEditor\vcl;$(BCB)\MyComponent\cnvcl\Source\Common;$(BCB)\MyComponent\cnvcl\Source\Graphics;$(BCB)\MyComponent\cnvcl\Source\NonVisual;$(BCB)\MyComponent\cnvcl\Source\NetComm"/>
+    <LIBPATH value="source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\MyComponent\suipack5\Source;$(BCB)\MyComponent\TMPHexEditor\vcl"/>
     <WARNINGS value="-w-par"/>
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
     <IDLCFLAGS value="-Isource\FieldPower -Isource\TableCtrl -Isource\MarkupSTL -Isource\Project 
       -I$(BCB)\Projects -I$(BCB)\include -I$(BCB)\include\vcl 
-      -ID:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6 
-      -ID:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl 
-      -ID:\Borland\CBuilder6\MyComponent\cnvcl\Source\Common 
-      -ID:\Borland\CBuilder6\MyComponent\cnvcl\Source\Graphics 
-      -ID:\Borland\CBuilder6\MyComponent\cnvcl\Source\NonVisual 
-      -ID:\Borland\CBuilder6\MyComponent\cnvcl\Source\NetComm -src_suffix cpp 
-      -D_DEBUG -boa"/>
+      -I$(BCB)\MyComponent\suipack5\Include\BCB6 
+      -I$(BCB)\MyComponent\TMPHexEditor\vcl 
+      -I$(BCB)\MyComponent\cnvcl\Source\Common 
+      -I$(BCB)\MyComponent\cnvcl\Source\Graphics 
+      -I$(BCB)\MyComponent\cnvcl\Source\NonVisual 
+      -I$(BCB)\MyComponent\cnvcl\Source\NetComm -src_suffix cpp -D_DEBUG -boa"/>
     <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
       -tW -tWM"/>
-    <PFLAGS value="-N2H:\Paul\MyProgram\TableAnalyzer\obj 
-      -N0H:\Paul\MyProgram\TableAnalyzer\obj -$Y+ -$W -$O- -$A8 -v -JPHNE -M"/>
+    <PFLAGS value="-N2obj -N0obj -$Y+ -$W -$O- -$A8 -v -JPHNE -M"/>
     <RFLAGS value=""/>
     <AFLAGS value="/mx /w2 /zi"/>
-    <LFLAGS value="-IH:\Paul\MyProgram\TableAnalyzer\obj -D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+    <LFLAGS value="-Iobj -D&quot;&quot; -aa -Tpe -x -Gn -v"/>
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
@@ -112,25 +110,27 @@ Comments=
 d:\borland\cbuilder6\Bin\dclite60.bpl=Borland Integrated Translation Environment
 
 [HistoryLists\hlIncludePath]
-Count=8
-Item0=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\Common;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\Graphics;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\NonVisual;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\NetComm
-Item1=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;D:\Borland\CBuilder6\MyComponent\cnvcl_20151212\Source\Common;D:\Borland\CBuilder6\MyComponent\cnvcl_20151212\Source\NonVisual;D:\Borland\CBuilder6\MyComponent\cnvcl_20151212\Source\Graphics
-Item2=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;source\CProject;source\CMarkupSTL;$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
-Item3=source\CProject;source\CMarkupSTL;$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;
-Item4=$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;
-Item5=$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
-Item6=$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
-Item7=$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6
+Count=9
+Item0=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\MyComponent\suipack5\Include\BCB6;$(BCB)\MyComponent\TMPHexEditor\vcl;$(BCB)\MyComponent\cnvcl\Source\Common;$(BCB)\MyComponent\cnvcl\Source\Graphics;$(BCB)\MyComponent\cnvcl\Source\NonVisual;$(BCB)\MyComponent\cnvcl\Source\NetComm
+Item1=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\Common;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\Graphics;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\NonVisual;D:\Borland\CBuilder6\MyComponent\cnvcl\Source\NetComm
+Item2=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;D:\Borland\CBuilder6\MyComponent\cnvcl_20151212\Source\Common;D:\Borland\CBuilder6\MyComponent\cnvcl_20151212\Source\NonVisual;D:\Borland\CBuilder6\MyComponent\cnvcl_20151212\Source\Graphics
+Item3=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;source\CProject;source\CMarkupSTL;$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
+Item4=source\CProject;source\CMarkupSTL;$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;
+Item5=$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl;
+Item6=$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
+Item7=$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
+Item8=$(BCB)\include;$(BCB)\include\vcl;D:\Borland\CBuilder6\MyComponent\suipack5\Include\BCB6
 
 [HistoryLists\hlLibraryPath]
-Count=7
-Item0=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
-Item1=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;source\CProject;source\CMarkupSTL;$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
-Item2=source\CProject;source\CMarkupSTL;$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
-Item3=$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
-Item4=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
-Item5=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source\;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
-Item6=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source\
+Count=8
+Item0=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;$(BCB)\MyComponent\suipack5\Source;$(BCB)\MyComponent\TMPHexEditor\vcl
+Item1=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
+Item2=source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;source\CProject;source\CMarkupSTL;$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
+Item3=source\CProject;source\CMarkupSTL;$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
+Item4=$(BCB)\Projects;H:\Paul\MyCenter\TableAnalyzerII;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
+Item5=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
+Item6=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source\;D:\Borland\CBuilder6\MyComponent\TMPHexEditor\vcl
+Item7=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;D:\Borland\CBuilder6\MyComponent\suipack5\Source\
 
 [HistoryLists\hlDebugSourcePath]
 Count=1
@@ -141,13 +141,15 @@ Count=1
 Item0=_DEBUG
 
 [HistoryLists\hlIntOutputDir]
-Count=1
-Item0=H:\Paul\MyProgram\TableAnalyzer\obj
+Count=2
+Item0=obj\
+Item1=H:\Paul\MyProgram\TableAnalyzer\obj
 
 [HistoryLists\hlFinalOutputDir]
-Count=2
-Item0=H:\Paul\MyProgram\TableAnalyzer\bin\
-Item1=H:\Paul\MyProgram\TableAnalyzer\bin
+Count=3
+Item0=bin\
+Item1=H:\Paul\MyProgram\TableAnalyzer\bin\
+Item2=H:\Paul\MyProgram\TableAnalyzer\bin
 
 [Debugging]
 DebugSourceDirs=$(BCB)\source\vcl
