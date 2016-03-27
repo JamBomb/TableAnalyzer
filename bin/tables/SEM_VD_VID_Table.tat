@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<table name="SEM_VD_VID" align="LSB">    
+    <field name="VLAN_DOMAIN" width="8" unit="1">NA</field>
+    <field name="INDICATION" width="2" >NA</field>
+	<field name="OUTER_VID" width="12" >NA</field>
+	<field name="INNER_DEI" width="12" >NA</field>
+</table>

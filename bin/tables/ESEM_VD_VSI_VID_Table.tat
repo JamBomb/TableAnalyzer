@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<table name="SEM_CVLAN_VSIID_VSIDB">    
+    <field name="CVLAN" width="12" unit="1">NA</field>
+    <field name="VSI_ID" width="16" >NA</field>
+	<field name="VLAN_DOMAIN" width="8" >NA</field>
+	<field name="VSI_DB" width="1" >NA</field>
+</table>
