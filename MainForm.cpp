@@ -65,6 +65,26 @@ void __fastcall TTableForm::OnMinMaxSize(TMessage& Msg)
     {
         // to do at maxize event.
     }
+    else if(Msg.WParam == SC_CLOSE)
+    {
+
+          switch (MessageBox(Handle, "Do you want to close Table Analyzer?", Application->Title.c_str(), MB_YESNO + MB_ICONQUESTION))
+              {
+              case IDYES:
+              {
+                  //Close();
+                  //#define SC_CLOSE        0xF060   @winuser.h
+                  break;
+              }
+
+              case IDNO:
+              {
+                  Msg.WParam = 0;
+                  break;
+              }
+          }
+    }
+
 
     TForm::Dispatch(&Msg); //将消息传给VCL以继续处理
 }

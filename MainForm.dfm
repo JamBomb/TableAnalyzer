@@ -3,7 +3,7 @@ object TableForm: TTableForm
   Top = 257
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'TableAnalyzer'
+  Caption = 'Table Analyzer'
   ClientHeight = 437
   ClientWidth = 988
   Color = clBtnFace

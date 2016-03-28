@@ -4,9 +4,9 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="bin\TableAnalyzer.exe"/>
-    <OBJFILES value="obj\\TableAnalyzer.obj obj\\MainForm.obj obj\\CProject.obj 
-      obj\\MarkupSTL.obj obj\\CFieldNode.obj obj\\CFieldNodeSet.obj 
-      obj\\CFieldTable.obj obj\\CTableCtrl.obj obj\\AboutForm.obj"/>
+    <OBJFILES value="obj\TableAnalyzer.obj obj\MainForm.obj obj\CProject.obj obj\MarkupSTL.obj 
+      obj\CFieldNode.obj obj\CFieldNodeSet.obj obj\CFieldTable.obj 
+      obj\CTableCtrl.obj obj\AboutForm.obj"/>
     <RESFILES value="TableAnalyzer.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
