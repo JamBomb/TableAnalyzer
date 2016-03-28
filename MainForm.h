@@ -49,7 +49,6 @@ __published:    // IDE-managed Components
     TPanel *pnl1;
     TSkinData *skndt1;
     TImageList *il1;
-    TImageList *il2;
     TSplitter *spl1;
     TsuiStatusBar *stat1;
     TTabControl *tbc2;
