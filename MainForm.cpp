@@ -57,7 +57,7 @@ void __fastcall TTableForm::OnMinMaxSize(TMessage& Msg)
 
         if(m_bShowTrayHint == false)
         {
-                ti1->BalloonHint("Hi:","Table Analyzer is here!", 0, 3);
+                ti1->BalloonHint("Hi:","Table Analyzer is here!", (TBalloonType)0, 3);
                 m_bShowTrayHint = true;
         }
     }
