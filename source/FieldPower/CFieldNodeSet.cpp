@@ -29,7 +29,10 @@ void CFieldNodeSet::AddNode(const CFieldNode &FieldNode)
 
 vector <CFieldNode> CFieldNodeSet::GetFieldNodes()
 {
-    vector <CFieldNode>  RtnFieldNodes = FieldNodes;
+    vector <CFieldNode>  RtnFieldNodes;
+    RtnFieldNodes.clear();
+
+    RtnFieldNodes.assign(FieldNodes.begin(), FieldNodes.end());
 
     return RtnFieldNodes;
 }

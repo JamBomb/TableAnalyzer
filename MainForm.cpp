@@ -27,7 +27,7 @@ __fastcall TTableForm::TTableForm(TComponent* Owner)
 {
     strngrd1->Cells[0][0] = "Table Field";
     strngrd1->Cells[0][1] = "Bits [range]";
-    strngrd1->Cells[0][2] = "Data [hex]";
+    strngrd1->Cells[0][2] = "Data [dec]";
 
     m_bShowedApplication = true;
 
@@ -133,7 +133,7 @@ bool __fastcall TTableForm::InitTableGrid(AnsiString TableFileName)
 
     strngrd1->Cells[0][0] = "Table Field";
     strngrd1->Cells[0][1] = "Bits [range]";
-    strngrd1->Cells[0][2] = "Data [hex]";
+    strngrd1->Cells[0][2] = "Data [dec]";
 
     for(DWORD i = 0; i < Nodelist.size(); i++)
     {
@@ -292,48 +292,40 @@ void __fastcall TTableForm::strngrd1DrawCell(TObject *Sender, int ACol,
 
 void __fastcall TTableForm::strngrd1KeyPress(TObject *Sender, char &Key)
 {
-    String HexList = "0123456789ABCDEF";
+    //String HexList = "0123456789ABCDEF";
+    String DecList = "0123456789";
     String Tmp = Key;
     Tmp = Tmp.UpperCase();
 
-    if(Key != VK_BACK && Key != VK_DELETE && Key != VK_RETURN && !HexList.Pos(Tmp))
+    if (Key == VK_BACK || Key == VK_DELETE || Key == VK_RETURN)
+    {
+      return ;
+    }
+
+    if(!DecList.Pos(Tmp)) //Hex: !HexList.Pos(Tmp)
     {
         Key = 0;
     }
     else if(m_GridCol > 0)
     {
-        BYTE byStrLen = strngrd1->Cells[m_GridCol][2].Length();
-
-        BYTE byFieldWidth = 0; //defult value
 
         String StrTmp = strngrd1->Cells[m_GridCol][1];
-
         StrTmp = StrTmp.Trim();
-
         StrTmp = StrTmp.SubString(1, StrTmp.Pos("b") - 1);
+        DWORD MaxValue =  pow(2, StrToInt(StrTmp));
+        DWORD CurValue = StrToInt(strngrd1->Cells[m_GridCol][2] + Tmp); //   StrToInt(strngrd1->Cells["0x"+m_GridCol][2] + Tmp)
 
-        byFieldWidth = StrToInt(StrTmp);
-
-        // limit inputted number size.
-        BYTE byLen = (byFieldWidth - 1) / 4 + 1;
-
-        if(byStrLen >= byLen && Key != VK_BACK && Key != VK_DELETE)
+        if(CurValue >= MaxValue)
         {
             Key = 0;
         }
         else
         {
-            if(Key != VK_BACK && Key != VK_DELETE && Key != VK_RETURN && StrToInt("0x" + strngrd1->Cells[m_GridCol][2] + Tmp) >= pow(2, StrToInt(StrTmp)))
-            {
-                Key = 0;
-            }
-            else
-            {
-                /*输入时字母自动转换成大写*/
-                char cUpcase = *(Tmp.c_str());
-                Key = cUpcase;
-            }
+            /*输入时字母自动转换成大写*/
+            char cUpcase = *(Tmp.c_str());
+            Key = cUpcase;
         }
+        
     }
 }
 //---------------------------------------------------------------------------
@@ -445,16 +437,17 @@ void __fastcall TTableForm::btnBuildDataClick(TObject *Sender)
 
     for (int i = 1; i < strngrd1->ColCount; i++)
     {
-        String HexData = strngrd1->Cells[i][2];
-        HexData = HexData.Trim();
+        String Data = strngrd1->Cells[i][2];
+        Data = Data.Trim();
 
-        if(HexData.IsEmpty())
+        if(Data.IsEmpty())
         {
-            HexData = "0";
+            Data = "0";
         }
 
-        HexData = "0x"+ HexData.Trim();
-        NodeDataList.push_back(StrToInt(HexData));
+        //Data = "0x"+ HexData.Trim();
+
+        NodeDataList.push_back(StrToInt(Data));
     }
 
     // set every node data in the talbe.
@@ -514,8 +507,10 @@ void __fastcall TTableForm::btnAnalyseDataClick(TObject *Sender)
 
     for (int i = 1; i < strngrd1->ColCount; i++)
     {
-        strngrd1->Cells[i][2] = IntToHex(__int64(FieldData[i - 1]), 1);
-        //String HexData
+       strngrd1->Cells[i][2] = IntToStr(__int64(FieldData[i - 1]));
+       //String HexData
+       // strngrd1->Cells[i][2] = IntToHex(__int64(FieldData[i - 1]), 1);
+
     }
 
     // set every node data in the table.
