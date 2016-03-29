@@ -1,0 +1,9 @@
+
+What's new?
+
+[1.0.0.1](2016-03-29)
+1. Add the edit functions (copy/paste/cut/redo/undo) for chip data.
+2. Modify inputted format from hex value to decimal value at the Table field.
+
+
+Copyright ©2016 Coriant. All rights reserved.
