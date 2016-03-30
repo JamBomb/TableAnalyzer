@@ -29,6 +29,8 @@ __fastcall TTableForm::TTableForm(TComponent* Owner)
     strngrd1->Cells[0][1] = "Bits [range]";
     strngrd1->Cells[0][2] = "Data [dec]";
 
+	m_DataFormat = DECIMAL_DATA_TYPE;
+
     m_bShowedApplication = true;
 
     m_pTableProject = new CProject();
@@ -44,6 +46,20 @@ __fastcall TTableForm::TTableForm(TComponent* Owner)
     mphxdtrx1->ClipboardAsHexText = true;
      
 }
+
+void __fastcall TTableForm::ChangeDataFormat(Data_Format eDataFormat)
+{
+	if (eDataFormat >= DATA_TYPE_COUNT)
+	{
+		return;
+	}
+	
+	String Format = (eDataFormat == DECIMAL_DATA_TYPE) ? "dec" : (eDataFormat == HEXADECIMAL_DATA_TYPE) ? "hex":"bin";
+	strngrd1->Cells[0][2] = "Data ["+ Format +"]";
+	m_DataFormat = eDataFormat;
+		
+}
+
 
 void __fastcall TTableForm::OnMinMaxSize(TMessage& Msg)
 {

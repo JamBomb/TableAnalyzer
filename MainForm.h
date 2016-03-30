@@ -73,13 +73,13 @@ __published:    // IDE-managed Components
     TMenuItem *N1;
     TMenuItem *About1;
     TMenuItem *N2;
-        TPopupMenu *pm2;
-        TMenuItem *paste1;
-        TMenuItem *Copy1;
-        TMenuItem *Cut1;
-        TMenuItem *N3;
-        TMenuItem *Redo1;
-        TMenuItem *Undo1;
+    TPopupMenu *pm2;
+    TMenuItem *paste1;
+    TMenuItem *Copy1;
+    TMenuItem *Cut1;
+    TMenuItem *N3;
+    TMenuItem *Redo1;
+    TMenuItem *Undo1;
     void __fastcall tvTablesClick(TObject *Sender);
     void __fastcall btn6Click(TObject *Sender);
     void __fastcall strngrd1DrawCell(TObject *Sender, int ACol,
@@ -95,12 +95,22 @@ __published:    // IDE-managed Components
     void __fastcall Show1Click(TObject *Sender);
     void __fastcall Exit1Click(TObject *Sender);
     void __fastcall btnAboutClick(TObject *Sender);
-        void __fastcall paste1Click(TObject *Sender);
-        void __fastcall Copy1Click(TObject *Sender);
-        void __fastcall Cut1Click(TObject *Sender);
-        void __fastcall Redo1Click(TObject *Sender);
-        void __fastcall Undo1Click(TObject *Sender);
+    void __fastcall paste1Click(TObject *Sender);
+    void __fastcall Copy1Click(TObject *Sender);
+    void __fastcall Cut1Click(TObject *Sender);
+    void __fastcall Redo1Click(TObject *Sender);
+    void __fastcall Undo1Click(TObject *Sender);
 private:    // User declarations
+
+    enum Data_Format
+    {
+        DECIMAL_DATA_TYPE = 0,
+        HEXADECIMAL_DATA_TYPE,
+        BINARY_DATA_TYPE,
+        DATA_TYPE_COUNT,
+    };
+
+	Data_Format m_DataFormat;
 
     void __fastcall OnMinMaxSize(TMessage &Msg);
 
@@ -112,6 +122,7 @@ private:    // User declarations
     bool __fastcall InitTableGrid(AnsiString TableFileName);
 
     bool __fastcall SetFieldDataToHexEditor(vector <BYTE> FieldData);
+
     vector <DWORD> __fastcall GetFieldDataFromHexEditor();
 
     TTreeNode *m_pSelectedTreeNode;
@@ -127,6 +138,12 @@ private:    // User declarations
     bool m_bShowTrayHint;
 
     void __fastcall UpdateCtrlState(bool bEnable);
+
+    void __fastcall StringToValue();
+
+    void __fastcall ValueToString();
+
+	void __fastcall ChangeDataFormat(Data_Format eDataFormat);
 
 
 public:     // User declarations
