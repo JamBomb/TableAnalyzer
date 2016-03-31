@@ -80,6 +80,10 @@ __published:    // IDE-managed Components
     TMenuItem *N3;
     TMenuItem *Redo1;
     TMenuItem *Undo1;
+    TPopupMenu *pm3;
+    TMenuItem *Dec1;
+    TMenuItem *Hex1;
+    TMenuItem *Bin1;
     void __fastcall tvTablesClick(TObject *Sender);
     void __fastcall btn6Click(TObject *Sender);
     void __fastcall strngrd1DrawCell(TObject *Sender, int ACol,
@@ -100,6 +104,10 @@ __published:    // IDE-managed Components
     void __fastcall Cut1Click(TObject *Sender);
     void __fastcall Redo1Click(TObject *Sender);
     void __fastcall Undo1Click(TObject *Sender);
+    void __fastcall Dec1Click(TObject *Sender);
+    void __fastcall Hex1Click(TObject *Sender);
+    void __fastcall Bin1Click(TObject *Sender);
+
 private:    // User declarations
 
     enum Data_Format
@@ -107,10 +115,10 @@ private:    // User declarations
         DECIMAL_DATA_TYPE = 0,
         HEXADECIMAL_DATA_TYPE,
         BINARY_DATA_TYPE,
-        DATA_TYPE_COUNT,
+        DATA_TYPE_MAX,
     };
 
-	Data_Format m_DataFormat;
+    Data_Format m_DataFormat;
 
     void __fastcall OnMinMaxSize(TMessage &Msg);
 
@@ -139,11 +147,11 @@ private:    // User declarations
 
     void __fastcall UpdateCtrlState(bool bEnable);
 
-    void __fastcall StringToValue();
+    DWORD __fastcall StringToValue(String StrData);
 
-    void __fastcall ValueToString();
+    String __fastcall ValueToString(DWORD dwData, Data_Format eDataFormat);
 
-	void __fastcall ChangeDataFormat(Data_Format eDataFormat);
+    void __fastcall ChangeDataFormat(Data_Format eDataFormat);
 
 
 public:     // User declarations

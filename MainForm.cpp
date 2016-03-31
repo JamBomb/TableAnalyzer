@@ -29,7 +29,7 @@ __fastcall TTableForm::TTableForm(TComponent* Owner)
     strngrd1->Cells[0][1] = "Bits [range]";
     strngrd1->Cells[0][2] = "Data [dec]";
 
-	m_DataFormat = DECIMAL_DATA_TYPE;
+    m_DataFormat = DECIMAL_DATA_TYPE;
 
     m_bShowedApplication = true;
 
@@ -44,20 +44,157 @@ __fastcall TTableForm::TTableForm(TComponent* Owner)
     m_bShowTrayHint = false;
 
     mphxdtrx1->ClipboardAsHexText = true;
-     
+
 }
+
+DWORD __fastcall TTableForm::StringToValue(String strData)
+{
+    DWORD dwData = 0;
+    strData = strData.Trim();
+
+    if(strData.IsEmpty())
+    {
+        dwData = 0;
+    }
+    else
+    {
+        switch (m_DataFormat)
+        {
+
+            case DECIMAL_DATA_TYPE:
+            {
+                dwData = StrToInt(strData);
+            }
+            break;
+
+            case HEXADECIMAL_DATA_TYPE:
+            {
+                strData = "0x"+ strData;
+                dwData = StrToInt(strData);
+            }
+            break;
+
+            case BINARY_DATA_TYPE:
+            {
+                if( 0 == strData.Pos("1"))
+                {
+                    dwData = 0;
+                }
+                else
+                {
+                    strData = strData.Delete(1, strData.Pos("1") - 1);
+
+                    for(int i = strData.Length(); i > 0; i--)
+                    {
+                        dwData = dwData + StrToInt(strData[i]) * pow(2, strData.Length() - i);
+                    }
+                }
+            }
+            break;
+
+            default:
+                dwData = 0;
+                break;
+
+        }
+
+    }
+
+    return dwData;
+}
+
+String __fastcall TTableForm::ValueToString(DWORD dwData, Data_Format eDataFormat)
+{
+    String  strData = "";
+
+    if(0 == dwData)
+    {
+        strData = "0";
+        return strData;
+    }
+
+    switch (eDataFormat)
+    {
+
+        case DECIMAL_DATA_TYPE:
+        {
+            strData = IntToStr((__int64)dwData);
+        }
+        break;
+
+        case HEXADECIMAL_DATA_TYPE:
+        {
+            strData = IntToHex((__int64)dwData, 1);
+        }
+        break;
+
+        case BINARY_DATA_TYPE:
+        {
+            String tmpStr = 0;
+            DWORD dwQuotient = 0;
+            DWORD dwRemainder = 0;
+
+
+            dwQuotient = dwData / 2 ;
+            dwRemainder = dwData % 2;
+            tmpStr = IntToStr(dwRemainder);
+
+            while(dwQuotient > 0)
+            {
+                dwRemainder = dwQuotient % 2;
+
+                tmpStr = tmpStr +  IntToStr(dwRemainder);
+
+                dwQuotient = dwQuotient / 2 ;
+
+            };
+
+
+            for(int i = tmpStr.Length(); i > 0; i--)
+            {
+                strData = strData +  tmpStr[i];
+            }
+
+        }
+        break;
+
+        default:
+            strData = "0";
+            break;
+
+    }
+
+    return    strData;
+
+}
+
 
 void __fastcall TTableForm::ChangeDataFormat(Data_Format eDataFormat)
 {
-	if (eDataFormat >= DATA_TYPE_COUNT)
-	{
-		return;
-	}
-	
-	String Format = (eDataFormat == DECIMAL_DATA_TYPE) ? "dec" : (eDataFormat == HEXADECIMAL_DATA_TYPE) ? "hex":"bin";
-	strngrd1->Cells[0][2] = "Data ["+ Format +"]";
-	m_DataFormat = eDataFormat;
-		
+    if (eDataFormat >= DATA_TYPE_MAX)
+    {
+        return;
+    }
+
+    String Format = (eDataFormat == DECIMAL_DATA_TYPE) ? "dec" : (eDataFormat == HEXADECIMAL_DATA_TYPE) ? "hex":"bin";
+
+    strngrd1->Cells[0][2] = "Data ["+ Format +"]";
+
+    for (int i = 1; i < strngrd1->ColCount; i++)
+    {
+        String strData = strngrd1->Cells[i][2];
+        strData = strData.Trim();
+
+        if(strData.IsEmpty())
+        {
+            strData = "0";
+        }
+
+        strngrd1->Cells[i][2] = ValueToString(StringToValue(strData), eDataFormat);
+    }
+
+    m_DataFormat = eDataFormat;
+
 }
 
 
@@ -73,8 +210,8 @@ void __fastcall TTableForm::OnMinMaxSize(TMessage& Msg)
 
         if(m_bShowTrayHint == false)
         {
-                ti1->BalloonHint("Hi:","Table Analyzer is here!", (TBalloonType)0, 3);
-                m_bShowTrayHint = true;
+            ti1->BalloonHint("Hi:","Table Analyzer is here!", (TBalloonType)0, 3);
+            m_bShowTrayHint = true;
         }
     }
     else if (Msg.WParam == SC_MAXIMIZE)
@@ -84,21 +221,21 @@ void __fastcall TTableForm::OnMinMaxSize(TMessage& Msg)
     else if(Msg.WParam == SC_CLOSE)
     {
 
-          switch (MessageBox(Handle, "Do you want to close Table Analyzer?", Application->Title.c_str(), MB_YESNO + MB_ICONQUESTION))
-              {
-              case IDYES:
-              {
-                  //Close();
-                  //#define SC_CLOSE        0xF060   @winuser.h
-                  break;
-              }
+        switch (MessageBox(Handle, "Do you want to close Table Analyzer?", Application->Title.c_str(), MB_YESNO + MB_ICONQUESTION))
+        {
+            case IDYES:
+            {
+                //Close();
+                //#define SC_CLOSE        0xF060   @winuser.h
+                break;
+            }
 
-              case IDNO:
-              {
-                  Msg.WParam = 0;
-                  break;
-              }
-          }
+            case IDNO:
+            {
+                Msg.WParam = 0;
+                break;
+            }
+        }
     }
 
 
@@ -118,9 +255,9 @@ void __fastcall TTableForm::UpdateCtrlState(bool bEnable)
 //---------------------------------------------------------------------------
 bool __fastcall TTableForm::InitTableGrid(AnsiString TableFileName)
 {
-    for(int i = 0; i < strngrd1->RowCount; i++)
+    for(int i = 1; i < strngrd1->ColCount; i++)
     {
-        strngrd1->Rows[i]->Clear();
+        strngrd1->Cols[i]->Clear();
     }
 
 
@@ -146,11 +283,7 @@ bool __fastcall TTableForm::InitTableGrid(AnsiString TableFileName)
     Nodelist =  m_TableCtrl.GetTableNodes();
 
     strngrd1->ColCount = Nodelist.size() + 1;
-
-    strngrd1->Cells[0][0] = "Table Field";
-    strngrd1->Cells[0][1] = "Bits [range]";
-    strngrd1->Cells[0][2] = "Data [dec]";
-
+    
     for(DWORD i = 0; i < Nodelist.size(); i++)
     {
         strngrd1->Cells[1 + i][0] = String(Nodelist[i].GetName().c_str());
@@ -308,17 +441,18 @@ void __fastcall TTableForm::strngrd1DrawCell(TObject *Sender, int ACol,
 
 void __fastcall TTableForm::strngrd1KeyPress(TObject *Sender, char &Key)
 {
-    //String HexList = "0123456789ABCDEF";
-    String DecList = "0123456789";
+    String NumberList = "";
     String Tmp = Key;
     Tmp = Tmp.UpperCase();
 
     if (Key == VK_BACK || Key == VK_DELETE || Key == VK_RETURN)
     {
-      return ;
+        return ;
     }
 
-    if(!DecList.Pos(Tmp)) //Hex: !HexList.Pos(Tmp)
+    NumberList = (DECIMAL_DATA_TYPE == m_DataFormat)? ("0123456789") : (HEXADECIMAL_DATA_TYPE == m_DataFormat)? "0123456789ABCDEF" : "01";
+
+    if(!NumberList.Pos(Tmp)) //Hex: !HexList.Pos(Tmp)
     {
         Key = 0;
     }
@@ -329,7 +463,7 @@ void __fastcall TTableForm::strngrd1KeyPress(TObject *Sender, char &Key)
         StrTmp = StrTmp.Trim();
         StrTmp = StrTmp.SubString(1, StrTmp.Pos("b") - 1);
         DWORD MaxValue =  pow(2, StrToInt(StrTmp));
-        DWORD CurValue = StrToInt(strngrd1->Cells[m_GridCol][2] + Tmp); //   StrToInt(strngrd1->Cells["0x"+m_GridCol][2] + Tmp)
+        DWORD CurValue = StringToValue(strngrd1->Cells[m_GridCol][2] + Tmp); //   StrToInt(strngrd1->Cells["0x"+m_GridCol][2] + Tmp)
 
         if(CurValue >= MaxValue)
         {
@@ -341,7 +475,7 @@ void __fastcall TTableForm::strngrd1KeyPress(TObject *Sender, char &Key)
             char cUpcase = *(Tmp.c_str());
             Key = cUpcase;
         }
-        
+
     }
 }
 //---------------------------------------------------------------------------
@@ -453,17 +587,14 @@ void __fastcall TTableForm::btnBuildDataClick(TObject *Sender)
 
     for (int i = 1; i < strngrd1->ColCount; i++)
     {
-        String Data = strngrd1->Cells[i][2];
-        Data = Data.Trim();
+        String strData = strngrd1->Cells[i][2];
+        strData = strData.Trim();
+        DWORD  dwData = 0;
 
-        if(Data.IsEmpty())
-        {
-            Data = "0";
-        }
+        dwData = StringToValue(strData);
 
-        //Data = "0x"+ HexData.Trim();
+        NodeDataList.push_back(dwData);
 
-        NodeDataList.push_back(StrToInt(Data));
     }
 
     // set every node data in the talbe.
@@ -523,10 +654,7 @@ void __fastcall TTableForm::btnAnalyseDataClick(TObject *Sender)
 
     for (int i = 1; i < strngrd1->ColCount; i++)
     {
-       strngrd1->Cells[i][2] = IntToStr(__int64(FieldData[i - 1]));
-       //String HexData
-       // strngrd1->Cells[i][2] = IntToHex(__int64(FieldData[i - 1]), 1);
-
+        strngrd1->Cells[i][2] = ValueToString(__int64(FieldData[i - 1]), m_DataFormat);
     }
 
     // set every node data in the table.
@@ -594,31 +722,50 @@ void __fastcall TTableForm::btnAboutClick(TObject *Sender)
 
 void __fastcall TTableForm::paste1Click(TObject *Sender)
 {
-        mphxdtrx1->CBPaste();
+    mphxdtrx1->CBPaste();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TTableForm::Copy1Click(TObject *Sender)
 {
-        mphxdtrx1->CBCopy();
+    mphxdtrx1->CBCopy();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TTableForm::Cut1Click(TObject *Sender)
 {
-      mphxdtrx1->CBCut();
+    mphxdtrx1->CBCut();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TTableForm::Redo1Click(TObject *Sender)
 {
-      mphxdtrx1->Redo();
+    mphxdtrx1->Redo();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TTableForm::Undo1Click(TObject *Sender)
 {
-            mphxdtrx1->Undo();
+    mphxdtrx1->Undo();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTableForm::Dec1Click(TObject *Sender)
+{
+    ChangeDataFormat(DECIMAL_DATA_TYPE);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTableForm::Hex1Click(TObject *Sender)
+{
+    ChangeDataFormat(HEXADECIMAL_DATA_TYPE);
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTableForm::Bin1Click(TObject *Sender)
+{
+    ChangeDataFormat(BINARY_DATA_TYPE);
 }
 //---------------------------------------------------------------------------
 

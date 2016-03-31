@@ -32,7 +32,7 @@
     <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
     <RELEASELIBPATH value="$(BCB)\lib\release"/>
     <LINKER value="ilink32"/>
-    <USERDEFINES value="_DEBUG"/>
+    <USERDEFINES value=""/>
     <SYSDEFINES value="NO_STRICT"/>
     <MAINSOURCE value="TableAnalyzer.cpp"/>
     <INCLUDEPATH value="source\FieldPower;source\TableCtrl;source\MarkupSTL;source\Project;$(BCB)\Projects;$(BCB)\include;$(BCB)\include\vcl;$(BCB)\MyComponent\suipack5\Include\BCB6;$(BCB)\MyComponent\TMPHexEditor\vcl;$(BCB)\MyComponent\cnvcl\Source\Common;$(BCB)\MyComponent\cnvcl\Source\Graphics;$(BCB)\MyComponent\cnvcl\Source\NonVisual;$(BCB)\MyComponent\cnvcl\Source\NetComm"/>
@@ -48,13 +48,12 @@
       -I$(BCB)\MyComponent\cnvcl\Source\Common 
       -I$(BCB)\MyComponent\cnvcl\Source\Graphics 
       -I$(BCB)\MyComponent\cnvcl\Source\NonVisual 
-      -I$(BCB)\MyComponent\cnvcl\Source\NetComm -src_suffix cpp -D_DEBUG -boa"/>
-    <CFLAG1 value="-Od -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -c 
-      -tW -tWM"/>
-    <PFLAGS value="-N2obj -N0obj -$Y+ -$W -$O- -$A8 -v -JPHNE -M"/>
+      -I$(BCB)\MyComponent\cnvcl\Source\NetComm -src_suffix cpp -boa"/>
+    <CFLAG1 value="-O2 -H=$(BCB)\lib\vcl60.csm -Hc -Vx -Ve -X- -a8 -b- -k- -vi -c -tW -tWM"/>
+    <PFLAGS value="-N2obj -N0obj -$Y- -$L- -$D- -$A8 -v -JPHNE -M"/>
     <RFLAGS value=""/>
-    <AFLAGS value="/mx /w2 /zi"/>
-    <LFLAGS value="-Iobj -D&quot;&quot; -aa -Tpe -x -Gn -v"/>
+    <AFLAGS value="/mx /w2 /zn"/>
+    <LFLAGS value="-Iobj -D&quot;&quot; -aa -Tpe -x -Gn"/>
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
@@ -141,9 +140,10 @@ Count=1
 Item0=_DEBUG
 
 [HistoryLists\hlIntOutputDir]
-Count=2
-Item0=obj\
-Item1=H:\Paul\MyProgram\TableAnalyzer\obj
+Count=3
+Item0=obj
+Item1=obj\
+Item2=H:\Paul\MyProgram\TableAnalyzer\obj
 
 [HistoryLists\hlFinalOutputDir]
 Count=3

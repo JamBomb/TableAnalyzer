@@ -182,8 +182,8 @@ void __fastcall TAboutForm1::PlayFire(int X, int Y)
     }
     if(bit_sound > 1)
     {
-		//PlaySound("syu.wav",0,SND_ASYNC |SND_FILENAME);
-		// PlaySound("SYU",HInstance, SND_ASYNC | SND_RESOURCE);
+        //PlaySound("syu.wav",0,SND_ASYNC |SND_FILENAME);
+        // PlaySound("SYU",HInstance, SND_ASYNC | SND_RESOURCE);
     }
 }
 

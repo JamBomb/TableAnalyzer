@@ -1,6 +1,6 @@
 object TableForm: TTableForm
-  Left = 428
-  Top = 257
+  Left = 432
+  Top = 293
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Table Analyzer'
@@ -5178,6 +5178,7 @@ object TableForm: TTableForm
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing]
         ParentCtl3D = False
         ParentFont = False
+        PopupMenu = pm3
         TabOrder = 0
         OnDrawCell = strngrd1DrawCell
         OnExit = strngrd1Exit
@@ -13628,6 +13629,29 @@ object TableForm: TTableForm
       Caption = 'Undo'
       ImageIndex = 13
       OnClick = Undo1Click
+    end
+  end
+  object pm3: TPopupMenu
+    Left = 176
+    Top = 192
+    object Dec1: TMenuItem
+      AutoCheck = True
+      Caption = 'Dec'
+      Checked = True
+      RadioItem = True
+      OnClick = Dec1Click
+    end
+    object Hex1: TMenuItem
+      AutoCheck = True
+      Caption = 'Hex'
+      RadioItem = True
+      OnClick = Hex1Click
+    end
+    object Bin1: TMenuItem
+      AutoCheck = True
+      Caption = 'Bin'
+      RadioItem = True
+      OnClick = Bin1Click
     end
   end
 end
