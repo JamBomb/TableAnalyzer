@@ -5286,12 +5286,11 @@ object TableForm: TTableForm
           BorderStyle = bsNone
           CharCase = ecUpperCase
           Color = 14609391
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
-          Font.Name = 'MS Sans Serif'
+          Font.Height = -13
+          Font.Name = 'Courier New'
           Font.Style = []
-          ImeName = #20013#25991'('#31616#20307') - '#24517#24212' Bing '#36755#20837#27861
           ParentFont = False
           ReadOnly = True
           TabOrder = 0

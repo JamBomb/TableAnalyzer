@@ -1,0 +1,34 @@
+
+What's new?
+
+[1.0.0.1](2016-03-29)
+1. Add the edit functions (copy/paste/cut/redo/undo) for chip data.
+2. Add configure inputted data format in table, support hexcimal, decimal and binary.
+
+
+===================================
+	What is TableAnalyzer? 
+===================================
+Table Analyzer has two main functions.
+One is to analyze the chip data to every field value of the chip table.
+The other is to generate the chip data according to every field value of the table.
+
+TableAnalyzer makes it easily to analyze/generate the chip table data.
+
+
+===================================
+	How to install: 
+===================================
+From the installer:
+	Just follow the install wizard.
+From the rar/zip/7z package:
+	just unzip all the files into a directory you want then launch it.
+
+
+===================================	
+    Manual service
+===================================
+luo.kaikun@coriant.com
+
+
+Copyright ©2016 Coriant. All rights reserved.

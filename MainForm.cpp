@@ -608,7 +608,8 @@ void __fastcall TTableForm::btnBuildDataClick(TObject *Sender)
 
     for(DWORD i = 0; i < DataList.size(); i++)
     {
-        edt2->Text = edt2->Text + IntToStr((__int64)DataList[i]);
+        String HexValue = "[0x"+ IntToHex((__int64)DataList[i], 1) +  "]";
+        edt2->Text = edt2->Text + IntToStr((__int64)DataList[i]) + HexValue;
         if(i < DataList.size() - 1)
         {
             edt2->Text = edt2->Text + "+";
@@ -668,7 +669,7 @@ void __fastcall TTableForm::btnAnalyseDataClick(TObject *Sender)
 
     for(DWORD i = 0; i < DataList.size(); i++)
     {
-        edt2->Text = edt2->Text + IntToStr((__int64)DataList[i]);
+        edt2->Text = edt2->Text + IntToStr((__int64)DataList[i]) + "[0x"+ IntToHex((__int64)DataList[i], 1) +  "]";
         if(i < DataList.size() - 1)
         {
             edt2->Text = edt2->Text + "+";
