@@ -770,3 +770,9 @@ void __fastcall TTableForm::Bin1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TTableForm::btn3Click(TObject *Sender)
+{
+        WinExec(_T("calc.exe"),SW_SHOWNORMAL);        
+}
+//---------------------------------------------------------------------------
+
