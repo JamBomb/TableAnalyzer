@@ -86,6 +86,8 @@ __published:    // IDE-managed Components
     TMenuItem *Bin1;
         TToolButton *btn3;
         TToolButton *btn4;
+        TToolButton *btnCopy;
+        TToolButton *btn8;
     void __fastcall tvTablesClick(TObject *Sender);
     void __fastcall btn6Click(TObject *Sender);
     void __fastcall strngrd1DrawCell(TObject *Sender, int ACol,
@@ -110,6 +112,7 @@ __published:    // IDE-managed Components
     void __fastcall Hex1Click(TObject *Sender);
     void __fastcall Bin1Click(TObject *Sender);
         void __fastcall btn3Click(TObject *Sender);
+        void __fastcall btnCopyClick(TObject *Sender);
 
 private:    // User declarations
 

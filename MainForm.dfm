@@ -1,6 +1,6 @@
 object TableForm: TTableForm
-  Left = 432
-  Top = 293
+  Left = 275
+  Top = 256
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Table Analyzer'
@@ -5278,7 +5278,7 @@ object TableForm: TTableForm
         object edt2: TEdit
           Left = 122
           Top = 2
-          Width = 511
+          Width = 463
           Height = 22
           BevelInner = bvLowered
           BevelKind = bkSoft
@@ -5297,15 +5297,33 @@ object TableForm: TTableForm
           Text = '0'
         end
         object btn4: TToolButton
-          Left = 633
+          Left = 585
           Top = 2
           Width = 8
           Caption = 'btn4'
           ImageIndex = 9
           Style = tbsSeparator
         end
+        object btnCopy: TToolButton
+          Left = 593
+          Top = 2
+          Hint = 'Copy'
+          Caption = 'btnCopy'
+          ImageIndex = 11
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btnCopyClick
+        end
+        object btn8: TToolButton
+          Left = 620
+          Top = 2
+          Width = 8
+          Caption = 'btn8'
+          ImageIndex = 9
+          Style = tbsSeparator
+        end
         object btn3: TToolButton
-          Left = 641
+          Left = 628
           Top = 2
           Hint = 'Calculator'
           Caption = 'Calc'
@@ -5315,7 +5333,7 @@ object TableForm: TTableForm
           OnClick = btn3Click
         end
         object btn15: TToolButton
-          Left = 668
+          Left = 655
           Top = 2
           Width = 12
           Caption = 'btn15'
@@ -5323,7 +5341,7 @@ object TableForm: TTableForm
           Style = tbsSeparator
         end
         object btnAbout: TToolButton
-          Left = 680
+          Left = 667
           Top = 2
           Hint = 'About...'
           Caption = 'btnAbout'
@@ -6785,7 +6803,7 @@ object TableForm: TTableForm
     Left = 360
     Top = 248
     Bitmap = {
-      494C01012D003100040010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C01012D003100040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000D0000000010020000000000000D0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -8505,7 +8523,8 @@ object TableForm: TTableForm
       83C1000300000000C003000300000000C003000300000000E007000300000000
       E007000300000000C00300030001000080010003000300000000000700070000
       0000000700070000F81F000700070000F81F000700070000FC3F000700070000
-      FC3F000700070000FE7F000700070000}
+      FC3F000700070000FE7F00070007000000000000000000000000000000000000
+      000000000000}
   end
   object cnhnt1: TCnHint
     BackColor = clInfoBk

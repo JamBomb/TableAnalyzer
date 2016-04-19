@@ -5,6 +5,7 @@
 
 #include "MainForm.h"
 #include "AboutForm.h"
+#include <Clipbrd.hpp>
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -773,6 +774,23 @@ void __fastcall TTableForm::Bin1Click(TObject *Sender)
 void __fastcall TTableForm::btn3Click(TObject *Sender)
 {
         WinExec(_T("calc.exe"),SW_SHOWNORMAL);        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTableForm::btnCopyClick(TObject *Sender)
+{
+   vector<DWORD> DataList;
+   String DataString;
+
+    m_TableCtrl.GetReversedData(DataList);
+    for(DWORD i = DataList.size(); i > 0 ; i--)
+    {
+        DataString = DataString + IntToStr((__int64)DataList[i - 1]);
+    }
+
+   // ShowMessage(DataString);
+       Clipboard()->AsText = DataString;
+
 }
 //---------------------------------------------------------------------------
 
