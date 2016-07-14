@@ -84,7 +84,7 @@ __published:    // IDE-managed Components
     TMenuItem *Dec1;
     TMenuItem *Hex1;
     TMenuItem *Bin1;
-        TToolButton *btn3;
+        TToolButton *btnCalc;
         TToolButton *btn4;
         TToolButton *btnCopy;
         TToolButton *btn8;
@@ -111,7 +111,7 @@ __published:    // IDE-managed Components
     void __fastcall Dec1Click(TObject *Sender);
     void __fastcall Hex1Click(TObject *Sender);
     void __fastcall Bin1Click(TObject *Sender);
-        void __fastcall btn3Click(TObject *Sender);
+        void __fastcall btnCalcClick(TObject *Sender);
         void __fastcall btnCopyClick(TObject *Sender);
 
 private:    // User declarations

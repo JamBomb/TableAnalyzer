@@ -603,10 +603,11 @@ void __fastcall TTableForm::btnBuildDataClick(TObject *Sender)
 
 
 
-    edt2->Text = "";
+    edt2->Text = "0x";
 
     m_TableCtrl.GetReversedData(DataList);
 
+    /*
     for(DWORD i = 0; i < DataList.size(); i++)
     {
         String HexValue = "[0x"+ IntToHex((__int64)DataList[i], 1) +  "]";
@@ -614,6 +615,17 @@ void __fastcall TTableForm::btnBuildDataClick(TObject *Sender)
         if(i < DataList.size() - 1)
         {
             edt2->Text = edt2->Text + "+";
+        }
+    }
+    */
+    
+    for(DWORD i = 0; i < DataList.size(); i++)
+    {
+        edt2->Text = edt2->Text + IntToHex((__int64)DataList[i], 1);
+
+         if(i < DataList.size() - 1)
+        {
+            edt2->Text = edt2->Text + "+0x";
         }
     }
 
@@ -771,21 +783,50 @@ void __fastcall TTableForm::Bin1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TTableForm::btn3Click(TObject *Sender)
+void __fastcall TTableForm::btnCalcClick(TObject *Sender)
 {
-        WinExec(_T("calc.exe"),SW_SHOWNORMAL);        
+        WinExec(_T("calc.exe"),SW_SHOWNORMAL);
+#if 0
+//ShellExecute(NULL, "open", "calc", NULL, NULL, SW_SHOW);
+
+HWND hWnd = ::FindWindow(_T("CalcFrame"), _T("Calculator"));
+
+if(hWnd != NULL)
+{
+    SendMessage(hWnd, WM_SETFOCUS,0,0);
+    SendMessage(hWnd, 0x93,0,0x0021D030);
+    SendMessage(hWnd, 0x93,0,0x0021D330);
+     Sleep(100);
+    SendMessage(hWnd, 0x91,0,0x0021D330);
+    SendMessage(hWnd, 0x92,0,0x0021D2C8);
+        SendMessage(hWnd, 0x92,0,0x0021D2C8);
+            SendMessage(hWnd, 0x92,0,0x0021D2C8);
+
+
+
+
+  //Caculator
+  //VK_1 0X31         //VK_2 0X32 2?   //VK_3 0X33  3?
+      //  SendMessage(hWnd, WM_SYSKEYDOWN, 0x33, 0x20000000);
+        //Sleep(100);
+       // PostMessage(hWnd, WM_SYSKEYUP,0x33,0x20000000);
+}
+
+#endif
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TTableForm::btnCopyClick(TObject *Sender)
 {
    vector<DWORD> DataList;
-   String DataString;
+   String DataString = "0x";
 
     m_TableCtrl.GetReversedData(DataList);
     for(DWORD i = DataList.size(); i > 0 ; i--)
     {
-        DataString = DataString + IntToStr((__int64)DataList[i - 1]);
+      
+        //DataString = DataString + IntToStr((__int64)DataList[i - 1]);
+        DataString = DataString + IntToHex((__int64)DataList[i-1], 1);
     }
 
    // ShowMessage(DataString);

@@ -5307,7 +5307,7 @@ object TableForm: TTableForm
         object btnCopy: TToolButton
           Left = 593
           Top = 2
-          Hint = 'Copy to clipborad'
+          Hint = 'Copy to clipboard'
           Caption = 'btnCopy'
           ImageIndex = 11
           ParentShowHint = False
@@ -5322,7 +5322,7 @@ object TableForm: TTableForm
           ImageIndex = 9
           Style = tbsSeparator
         end
-        object btn3: TToolButton
+        object btnCalc: TToolButton
           Left = 628
           Top = 2
           Hint = 'Calculator'
@@ -5330,7 +5330,7 @@ object TableForm: TTableForm
           ImageIndex = 9
           ParentShowHint = False
           ShowHint = True
-          OnClick = btn3Click
+          OnClick = btnCalcClick
         end
         object btn15: TToolButton
           Left = 655

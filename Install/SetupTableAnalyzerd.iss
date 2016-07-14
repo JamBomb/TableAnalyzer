@@ -2,8 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TableAnalyzer"
-#define MyAppVersion "1.0.0.1"
-#define MyAppPublisher "luo.kaikun@coriant.com"
+#define MyAppVersion "1.0.0.1"#define MyAppPublisher "luo.kaikun@coriant.com"
 #define MyAppExeName "TableAnalyzer.exe"
 
 [Setup]
@@ -18,9 +17,9 @@ AppPublisher={#MyAppPublisher}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-OutputDir=F:\MyCenter\TableAnalyzer\Install
+OutputDir=F:\MyGarden\TableAnalyzer\Install
 OutputBaseFilename=TableAnalyzerInstall
-SetupIconFile=F:\MyCenter\TableAnalyzer\Install\Install.ico
+SetupIconFile=F:\MyGarden\TableAnalyzer\Install\Install.ico
 Compression=lzma
 SolidCompression=yes
 Uninstallable=yes
@@ -33,13 +32,13 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "F:\MyCenter\TableAnalyzer\Install\Uninstall.ico"; Flags:solidbreak dontcopySource: "F:\MyCenter\TableAnalyzer\Install\UpdateIcon.dll"; Flags:solidbreak dontcopy
-Source: "F:\MyCenter\TableAnalyzer\bin\TableAnalyzer.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MyCenter\TableAnalyzer\bin\tables\*"; DestDir: "{app}\tables"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "F:\MyCenter\TableAnalyzer\bin\readme.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MyCenter\TableAnalyzer\bin\Help.pdf"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MyCenter\TableAnalyzer\install\uninstall.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MyCenter\TableAnalyzer\bin\Readme.txt"; DestDir: "{app}"; Flags: isreadme
+Source: "F:\MyGarden\TableAnalyzer\Install\Uninstall.ico"; Flags:solidbreak dontcopySource: "F:\MyGarden\TableAnalyzer\Install\UpdateIcon.dll"; Flags:solidbreak dontcopy
+Source: "F:\MyGarden\TableAnalyzer\bin\TableAnalyzer.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MyGarden\TableAnalyzer\bin\tables\*"; DestDir: "{app}\tables"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "F:\MyGarden\TableAnalyzer\bin\readme.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MyGarden\TableAnalyzer\bin\Help.pdf"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MyGarden\TableAnalyzer\install\uninstall.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MyGarden\TableAnalyzer\bin\Readme.txt"; DestDir: "{app}"; Flags: isreadme
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [code]
