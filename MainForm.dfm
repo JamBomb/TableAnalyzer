@@ -5307,7 +5307,7 @@ object TableForm: TTableForm
         object btnCopy: TToolButton
           Left = 593
           Top = 2
-          Hint = 'Copy'
+          Hint = 'Copy to clipborad'
           Caption = 'btnCopy'
           ImageIndex = 11
           ParentShowHint = False
@@ -13629,7 +13629,7 @@ object TableForm: TTableForm
     end
     object Exit1: TMenuItem
       Caption = 'Exit'
-      ImageIndex = 14
+      ImageIndex = 15
       OnClick = Exit1Click
     end
   end

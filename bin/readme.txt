@@ -20,4 +20,9 @@ From the rar/zip/7z package:
 ===================================	
     Manual service
 ===================================
+help.pdf
+
+===================================	
+   Support service
+===================================
 luo.kaikun@coriant.com
