@@ -5284,7 +5284,7 @@ object TableForm: TTableForm
           BevelKind = bkSoft
           BevelOuter = bvSpace
           BorderStyle = bsNone
-          CharCase = ecUpperCase
+          CharCase = ecLowerCase
           Color = 14609391
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText

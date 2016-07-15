@@ -600,9 +600,6 @@ void __fastcall TTableForm::btnBuildDataClick(TObject *Sender)
 
     // set every node data in the talbe.
     m_TableCtrl.SetNodesData(NodeDataList);
-
-
-
     edt2->Text = "0x";
 
     m_TableCtrl.GetReversedData(DataList);
@@ -618,15 +615,10 @@ void __fastcall TTableForm::btnBuildDataClick(TObject *Sender)
         }
     }
     */
-    
-    for(DWORD i = 0; i < DataList.size(); i++)
-    {
-        edt2->Text = edt2->Text + IntToHex((__int64)DataList[i], 1);
 
-         if(i < DataList.size() - 1)
-        {
-            edt2->Text = edt2->Text + "+0x";
-        }
+    for(DWORD i = DataList.size(); i > 0 ; i--)
+    {
+        edt2->Text = edt2->Text + IntToHex((__int64)DataList[i-1], 1);
     }
 
     DataList.clear();
@@ -676,10 +668,16 @@ void __fastcall TTableForm::btnAnalyseDataClick(TObject *Sender)
 
     vector<DWORD> DataList;
 
-    edt2->Text = "";
+    edt2->Text = "0x";
 
     m_TableCtrl.GetReversedData(DataList);
 
+    for(DWORD i = DataList.size(); i > 0 ; i--)
+    {
+        edt2->Text = edt2->Text + IntToHex((__int64)DataList[i-1], 1);
+    }
+
+    /*
     for(DWORD i = 0; i < DataList.size(); i++)
     {
         edt2->Text = edt2->Text + IntToStr((__int64)DataList[i]) + "[0x"+ IntToHex((__int64)DataList[i], 1) +  "]";
@@ -688,6 +686,7 @@ void __fastcall TTableForm::btnAnalyseDataClick(TObject *Sender)
             edt2->Text = edt2->Text + "+";
         }
     }
+    */
 
     strngrd1->Invalidate();
 
