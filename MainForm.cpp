@@ -618,7 +618,7 @@ void __fastcall TTableForm::btnBuildDataClick(TObject *Sender)
 
     for(DWORD i = DataList.size(); i > 0 ; i--)
     {
-        edt2->Text = edt2->Text + IntToHex((__int64)DataList[i-1], 1);
+        edt2->Text = edt2->Text + IntToHex((__int64)DataList[i-1], 8);
     }
 
     DataList.clear();
@@ -674,7 +674,7 @@ void __fastcall TTableForm::btnAnalyseDataClick(TObject *Sender)
 
     for(DWORD i = DataList.size(); i > 0 ; i--)
     {
-        edt2->Text = edt2->Text + IntToHex((__int64)DataList[i-1], 1);
+        edt2->Text = edt2->Text + IntToHex((__int64)DataList[i-1], 8);
     }
 
     /*
@@ -825,7 +825,7 @@ void __fastcall TTableForm::btnCopyClick(TObject *Sender)
     {
       
         //DataString = DataString + IntToStr((__int64)DataList[i - 1]);
-        DataString = DataString + IntToHex((__int64)DataList[i-1], 1);
+        DataString = DataString + IntToHex((__int64)DataList[i-1], 8);
     }
 
    // ShowMessage(DataString);
